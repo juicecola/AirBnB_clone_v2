@@ -5,7 +5,7 @@ from datetime import date
 
 
 def do_pack():
-    """ Bash script that sets up your web servers for the deployment of web_static """
+    """script that sets up web servers for the deployment of web_static """
 
     filename = strftime("%Y%m%d%H%M%S")
     try:
