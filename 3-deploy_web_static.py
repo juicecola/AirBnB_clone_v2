@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-#fabric script to create an archive file n deployit to a remote server
+# fabric script to create an archive file n deployit to a remote server
+
 from fabric.api import local
 from datetime import datetime
 from fabric.api import run, env, put
