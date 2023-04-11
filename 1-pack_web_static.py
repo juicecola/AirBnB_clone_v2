@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-#A script that generates archive the contents of web_static folder
-
 from fabric.api import local
 from time import strftime
 from datetime import date
+
+
 def do_pack():
+    """ Bash script that sets up your web servers for the deployment of web_static """
 
     filename = strftime("%Y%m%d%H%M%S")
     try:
