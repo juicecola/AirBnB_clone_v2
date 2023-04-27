@@ -1,40 +1,45 @@
-#!/usr/bin/python3
-# script that starts a Flask web application
-# /: display “Hello HBNB!”
-# /hbnb: display “HBNB”
-# /c/<text>: display “C ”, followed by the value of the text variable
-# /python/(<text>): display “Python ”followed by value of the text variabl
-# The default value of text is “is cool”
+#!/usr/bin/python
+
+"""
+Starts a Flask web application with multiple routes
+"""
 
 from flask import Flask
 
-app = Flask("__name__")
+app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)
 def hello():
-    """Return a given string"""
-    return ("Hello HBNB!")
+    """Returns a greeting"""
+    return "Hello HBNB!"
 
 
-@app.route("/hbnb", strict_slashes=False)
+@app.route('/hbnb', strict_slashes=False)
 def hbnb():
-    """Returns a given string"""
-    return ("HBNB")
+    """Returns HBNB"""
+    return "HBNB"
 
 
-@app.route("/c/<text>", strict_slashes=False)
-def cText(text):
-    """display C followed by the value of the text variable"""
+@app.route('/c/<text>', strict_slashes=False)
+def c_text(text):
+    """
+    Displays 'C' followed by the value of the 'text' variable
+    Replaces any underscores in the text with spaces
+    """
     return "C {}".format(text.replace("_", " "))
 
 
-@app.route('/python', strict_slashes=False)
-@app.route("/python/<text>", strict_slashes=False)
-def pythonText(text="is cool"):
-    """display Python followed by the value of the text variable"""
+@app.route('/python', defaults={'text': 'is cool'}, strict_slashes=False)
+@app.route('/python/<text>', strict_slashes=False)
+def python_text(text):
+    """
+    Displays 'Python' followed by the value of the 'text' variable
+    If no 'text' parameter is passed, it defaults to 'is cool'
+    Replaces any underscores in the text with spaces
+    """
     return "Python {}".format(text.replace("_", " "))
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=None)
+    app.run(host="0.0.0.0", port=5000)
