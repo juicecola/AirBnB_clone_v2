@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-""" script that starts a Flask web application
- must be listening on 0.0.0.0, port 5000
- /: display “Hello HBNB!” & /hbnb: display “HBNB” """
+"""script that starts a Flask web application
+must be listening on 0.0.0.0, port 5000
+/: display “Hello HBNB!” & /hbnb: display “HBNB”"""
 
 from flask import Flask
 
